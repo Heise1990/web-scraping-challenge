@@ -2,24 +2,42 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 94,
+   "execution_count": 75,
    "metadata": {},
    "outputs": [],
    "source": [
     "from bs4 import BeautifulSoup\n",
     "from requests import get\n",
     "from splinter import Browser\n",
-    "import pandas as pd"
+    "import pandas as pd\n",
+    "from webdriver_manager.chrome import ChromeDriverManager"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 98,
+   "execution_count": 76,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "[WDM] - Current google-chrome version is 87.0.4280\n",
+      "[WDM] - Get LATEST driver version for 87.0.4280\n",
+      "[WDM] - Driver [/Users/jordanheise/.wdm/drivers/chromedriver/mac64/87.0.4280.88/chromedriver] found in cache\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " \n"
+     ]
+    }
+   ],
    "source": [
     "# Setup splinter\n",
-    "executable_path = {'executable_path' : '/Users/jordanheise/.wdm/drivers/chromedriver/mac64/87.0.4280.88/chromedriver'}\n",
+    "executable_path = {'executable_path' : ChromeDriverManager().install()}\n",
     "browser = Browser('chrome', **executable_path, headless = False)"
    ]
   },
