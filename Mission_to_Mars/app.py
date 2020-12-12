@@ -16,13 +16,13 @@ def scrape_route():
     # connect to db
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
     # create db
-    marsDB = myclient["marsDB"]
+    mars_db = myclient["mars_db"]
     # create collection in db
-    marsColl = marsDB["marsColl"]
+    mars_collection = mars_db["mars_collection"]
     # Clear Collection
-    marsColl.remove({})
+    mars_collection.remove({})
     # Insert Data
-    marsColl.insert_one(scrape_results)
+    mars_collection.insert_one(scrape_results)
 
     return '<div>Mars Data Added</div><a href="/">Go Back</a>'
 
@@ -31,6 +31,6 @@ def root_route():
     # connect to db
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
     # create db
-    marsDB = myclient["marsDB"]
+    mars_db = myclient["mars_db"]
     # create collection in db
-    marsColl = marsDB["marsColl"]
+    mars_collection = mars_db["mars_collection"]
